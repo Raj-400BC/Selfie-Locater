@@ -4,12 +4,12 @@ function findMe() {
         const longitude = position.coords.longitude;
         const timestamp = position.timestamp;
         let CurrentDate = new Date(timestamp);
-        const favAni = document.getElementById('name').value;
+        const mood = document.getElementById('mood').value;
         document.getElementById('latitude').textContent = latitude;
         document.getElementById('longitude').textContent = longitude;
         document.getElementById('timestamp').textContent = CurrentDate;
         const data = {
-            latitude ,longitude , CurrentDate , favAni
+            latitude ,longitude , CurrentDate , mood
         }
         const options = {
             method : 'POST',
@@ -20,6 +20,6 @@ function findMe() {
         const response = await fetch('/api',options );
             const json = await response.json();
             console.log(json);
-            // console.log('data sent')
     });
  };
+
