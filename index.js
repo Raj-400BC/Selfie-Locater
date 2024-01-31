@@ -1,26 +1,30 @@
-import express from 'express';
-import fs from 'fs';
+import express, { response } from 'express';
 import Datastore from 'nedb';
-const app = express();
-const port = 3000;
-app.use(express.static('public'))
-app.use(express.json({limit:'1mb'}))
 
-app.get('/api' , (req, res) =>{
-    res.json({
-        test : '123'
-    })
-} )
+const app = express();
+app.listen(3001, () => console.log('listening at 3001'));
+app.use(express.static('public'));
+app.use(express.json({ limit: '1mb' }));
 
 const database = new Datastore('database.db');
 database.loadDatabase();
-app.post('/api', (req, response) => {
-    const data = req.body;
-    database.insert(data);
-    response.json(data);
-});
-// database.remove({}, { multi: true });
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-}); 
+app.get('/api', (request, response) => {
+  database.find({}, (err, data) => {
+    if (err) {
+      response.end();
+      return;
+    }
+    response.json(data);
+  });
+});
+
+app.post('/api', (request, response) => {
+  const data = request.body;
+
+  
+  database.insert(data);
+  response.json(data);
+});
+
+// database.remove({}, { multi: true });
