@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selfie Locator</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js" integrity="sha512-uaz5GpnQoE6t5echKlX8P52czvsIGgLPcvlzfvRubLZ1Hp8JemUDnbUiAahbVtPb+jUVrNETuXvAhDDF/N3M4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="sketch.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <a href="logs/index.html" >view list</a>
-    <h1>Hello</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Data Selfie App</h1>
+    <div><a href="/">enter</a> | <a href="logs/index.html">list</a></div>
     <h3>Latitude : <span id="latitude"></span>°</h3>
     <h3>Longitude : <span id="longitude"></span>°</h3>
     <h3>TimeStamp : <span id="timestamp"></span></h3>
-    <!-- <h3 id="name"></h3> -->
-    <label for="name">Mood</label>
-    <input type="text" name="mood" required id="mood" placeholder="What's your Mood ?">
-    <!-- <input type="button" value="FindMe" onclick="findMe()" id="mybtn"> -->
-    <input type="button" value="FindMe"  id="submit">
-
-    
-</body>
-<script>
-</script>
+    <label for="mood">enter your mood</label>
+    <input id="mood" value="rainbow" />
+    <input type="button" value="FindMe" id="submit" />
+    <!-- <button id="submit">submit</button> -->
+    <script src="sketch.js"></script>
+  </body>
 </html>
