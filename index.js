@@ -1,15 +1,15 @@
-import express, { response } from 'express';
-import Datastore from 'nedb';
+import express, { response } from "express";
+import Datastore from "nedb";
 
 const app = express();
-app.listen(3001, () => console.log('listening at 3001'));
-app.use(express.static('public'));
-app.use(express.json({ limit: '1mb' }));
+app.listen(3001, () => console.log("listening at 3001"));
+app.use(express.static("public"));
+app.use(express.json({ limit: "1mb" }));
 
-const database = new Datastore('database.db');
+const database = new Datastore("database.db");
 database.loadDatabase();
 
-app.get('/api', (request, response) => {
+app.get("/api", (request, response) => {
   database.find({}, (err, data) => {
     if (err) {
       response.end();
@@ -19,10 +19,9 @@ app.get('/api', (request, response) => {
   });
 });
 
-app.post('/api', (request, response) => {
+app.post("/api", (request, response) => {
   const data = request.body;
 
-  
   database.insert(data);
   response.json(data);
 });
